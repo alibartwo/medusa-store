@@ -24,3 +24,6 @@ build
 !.yarn/versions
 
 .medusa
+
+.vscode
+.vscode/*
