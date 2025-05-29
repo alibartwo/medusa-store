@@ -25,7 +25,11 @@ export default async function Nav() {
               className="txt-compact-xlarge-plus hover:text-ui-fg-base"
               data-testid="nav-store-link"
             >
-              Pitakı
+              <img
+                src="/pitaki-logo.png"
+                alt="Pitakı Logo"
+                className="h-8 w-auto txt-compact-xlarge-plus"
+              />
             </LocalizedClientLink>
           </div>
 
