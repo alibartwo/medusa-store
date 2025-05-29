@@ -14,11 +14,11 @@ type ProductTabsProps = {
 const ProductTabs = ({ product }: ProductTabsProps) => {
   const tabs = [
     {
-      label: "Product Information",
+      label: "Ürün Bilgileri",
       component: <ProductInfoTab product={product} />,
     },
     {
-      label: "Shipping & Returns",
+      label: "Kargo & İade",
       component: <ShippingInfoTab />,
     },
   ]
@@ -85,31 +85,31 @@ const ShippingInfoTab = () => {
         <div className="flex items-start gap-x-2">
           <FastDelivery />
           <div>
-            <span className="font-semibold">Fast delivery</span>
+            <span className="font-semibold">Hızlı Teslimat</span>
             <p className="max-w-sm">
-              Your package will arrive in 3-5 business days at your pick up
-              location or in the comfort of your home.
+              Paketiniz 3-5 iş günü içinde teslim aldığınız yere veya evinizin
+              konforuna ulaşacaktır.
             </p>
           </div>
         </div>
         <div className="flex items-start gap-x-2">
           <Refresh />
           <div>
-            <span className="font-semibold">Simple exchanges</span>
+            <span className="font-semibold">Basit Değişimler</span>
             <p className="max-w-sm">
-              Is the fit not quite right? No worries - we&apos;ll exchange your
-              product for a new one.
+              Tam oturmadı mı? Endişelenmeyin - ürününüzü yenisiyle
+              değiştireceğiz.
             </p>
           </div>
         </div>
         <div className="flex items-start gap-x-2">
           <Back />
           <div>
-            <span className="font-semibold">Easy returns</span>
+            <span className="font-semibold">Kolay İade</span>
             <p className="max-w-sm">
-              Just return your product and we&apos;ll refund your money. No
-              questions asked – we&apos;ll do our best to make sure your return
-              is hassle-free.
+              Sadece ürününüzü iade edin ve biz de paranızı iade edelim. Soru
+              sormak yok - iadenizin sorunsuz olmasını sağlamak için elimizden
+              geleni yapacağız.
             </p>
           </div>
         </div>

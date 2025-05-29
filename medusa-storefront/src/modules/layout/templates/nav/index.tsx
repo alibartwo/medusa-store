@@ -22,10 +22,10 @@ export default async function Nav() {
           <div className="flex items-center h-full">
             <LocalizedClientLink
               href="/"
-              className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
+              className="txt-compact-xlarge-plus hover:text-ui-fg-base"
               data-testid="nav-store-link"
             >
-              Medusa Store
+              Pitakı
             </LocalizedClientLink>
           </div>
 
@@ -36,7 +36,7 @@ export default async function Nav() {
                 href="/account"
                 data-testid="nav-account-link"
               >
-                Account
+                Hesap
               </LocalizedClientLink>
             </div>
             <Suspense
@@ -46,7 +46,7 @@ export default async function Nav() {
                   href="/cart"
                   data-testid="nav-cart-link"
                 >
-                  Cart (0)
+                  Sepet (0)
                 </LocalizedClientLink>
               }
             >
