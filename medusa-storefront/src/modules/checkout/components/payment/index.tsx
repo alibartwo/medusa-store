@@ -119,7 +119,7 @@ const Payment = ({
             }
           )}
         >
-          Payment
+          Ödeme
           {!isOpen && paymentReady && <CheckCircleSolid />}
         </Heading>
         {!isOpen && paymentReady && (
@@ -129,7 +129,7 @@ const Payment = ({
               className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
               data-testid="edit-payment-button"
             >
-              Edit
+              Düzenle
             </button>
           </Text>
         )}

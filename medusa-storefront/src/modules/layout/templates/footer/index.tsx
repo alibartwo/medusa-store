@@ -18,9 +18,14 @@ export default async function Footer() {
           <div>
             <LocalizedClientLink
               href="/"
-              className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base"
+              className="txt-compact-xlarge-plus hover:text-ui-fg-base"
+              data-testid="nav-store-link"
             >
-              Pitakı
+              <img
+                src="/pitaki-logo.png"
+                alt="Pitakı Logo"
+                className="h-24 w-auto txt-compact-xlarge-plus"
+              />
             </LocalizedClientLink>
           </div>
           <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">
