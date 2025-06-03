@@ -1,5 +1,5 @@
 import {defineRouteConfig} from "@medusajs/admin-sdk"
-import {TagSolid} from "@medusajs/icons"
+import {TagSolid, Trash} from "@medusajs/icons"
 import {
     Container,
     createDataTableColumnHelper,
@@ -8,10 +8,11 @@ import {
     Heading,
     useDataTable,
 } from "@medusajs/ui"
-import {useQuery} from "@tanstack/react-query"
+import {useNavigate} from "react-router-dom"
+import {useQuery, useQueryClient} from "@tanstack/react-query"
 import {sdk} from "../../lib/sdk"
 import {useMemo, useState} from "react"
-
+import {CreateBrandForm} from "../../components/create-brand-form.tsx"
 
 type Brand = {
     id: string
@@ -30,20 +31,83 @@ const BrandsPage = () => {
         pageSize: limit,
         pageIndex: 0,
     })
-    const offset = useMemo(() => {
-        return pagination.pageIndex * limit
-    }, [pagination])
+    const offset = useMemo(() => pagination.pageIndex * limit, [pagination])
+
+    const navigate = useNavigate()
+    const queryClient = useQueryClient()
 
     const {data, isLoading} = useQuery<BrandsResponse>({
-        queryFn: () => sdk.client.fetch(`/admin/brands`, {
-            query: {
-                limit,
-                offset,
-            },
-        }),
-        queryKey: [["brands", limit, offset]],
+        queryKey: ["brands", limit, offset],
+        queryFn: () =>
+            sdk.client.fetch("/admin/brands", {
+                query: {limit, offset},
+            }),
     })
 
+    const handleDelete = async (id: string) => {
+        const confirmed = window.confirm("Bu markayı silmek istediğinize emin misiniz?")
+        if (!confirmed) {
+            return
+        }
+
+        try {
+            // a) Native fetch kullanarak DELETE isteğini gönderiyoruz:
+            const response = await fetch(`/admin/brands/${id}`, {
+                method: "DELETE",
+                headers: {},
+            })
+
+            if (response.status === 204) {
+                // refresh the list
+                queryClient.invalidateQueries({queryKey: ["brands", limit, offset]})
+            } else {
+                // throw error if retrieve 200 or other
+                const data = await response.json().catch(() => null)
+                console.warn("Beklenmeyen silme yanıtı:", data)
+                queryClient.invalidateQueries({queryKey: ["brands", limit, offset]})
+            }
+        } catch (err) {
+            console.error("Silme işlemi başarısız:", err)
+        }
+    }
+
+    // define columns in useMemo
+    const columns = useMemo(() => {
+        const columnHelper = createDataTableColumnHelper<Brand>()
+        return [
+            columnHelper.accessor("id", {header: "ID"}),
+            columnHelper.accessor("name", {
+                header: "İsim",
+                enableSorting: true
+            }),
+            columnHelper.display({
+                id: "actions",
+                header: "",
+                size: 24,
+                meta: {
+                    align: "right",
+                },
+                cell: ({row}) => {
+                    const brandId = row.original.id
+                    return (
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation()
+                                void handleDelete(brandId)
+                            }}
+                            className="flex items-center justify-center text-red-500 hover:text-red-700"
+                            title="Sil"
+                            style={{width: "100%"}}
+                        >
+                            <Trash className="h-5 w-5"/>
+                        </button>
+                    )
+                },
+            }),
+        ]
+    }, [handleDelete])
+
+    // 4) DataTable instance’ını oluşturuyoruz:
     const table = useDataTable({
         columns,
         data: data?.brands || [],
@@ -54,6 +118,9 @@ const BrandsPage = () => {
             state: pagination,
             onPaginationChange: setPagination,
         },
+        onRowClick() {
+            navigate(`/products`)
+        },
     })
 
     return (
@@ -61,27 +128,26 @@ const BrandsPage = () => {
             <DataTable instance={table}>
                 <DataTable.Toolbar
                     className="flex flex-col items-start justify-between gap-2 md:flex-row md:items-center">
-                    <Heading>Brands</Heading>
+                    <Heading>Markalar</Heading>
+                    <CreateBrandForm/>
                 </DataTable.Toolbar>
                 <DataTable.Table/>
-                <DataTable.Pagination/>
+                <DataTable.Pagination
+                    translations={{
+                        next: "Sonraki",
+                        prev: "Önceki",
+                        of: "/",
+                        pages: "sayfalar",
+                        results: "sonuç",
+                    }}
+                />
             </DataTable>
         </Container>
     )
 }
 
-const columnHelper = createDataTableColumnHelper<Brand>()
-
-const columns = [
-    columnHelper.accessor("id", {
-        header: "ID",
-    }),
-    columnHelper.accessor("name", {
-        header: "Name",
-    }),
-]
 export const config = defineRouteConfig({
-    label: "Brands",
+    label: "Markalar",
     icon: TagSolid,
 })
 

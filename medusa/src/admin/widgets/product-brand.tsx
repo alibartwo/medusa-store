@@ -51,7 +51,7 @@ const ProductBrandWidget = ({
 }
 
 export const config = defineWidgetConfig({
-    zone: "product.details.before",
+    zone: "product.details.side.after",
 })
 
 export default ProductBrandWidget
