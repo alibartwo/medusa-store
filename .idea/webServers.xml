@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="9db0238f-7514-4b2d-bf7a-c10c6e8c03cb" name="medusa-server">
+        <fileTransfer rootFolder="/home/alibartu" accessType="SFTP" host="157.180.118.182" port="22" sshConfigId="0011e906-af87-4eb7-879a-55846ef3cb96" sshConfig="alibartu@157.180.118.182:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
