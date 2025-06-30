@@ -1,131 +1,75 @@
-<p align="center">
-  <a href="https://www.medusajs.com">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/59018053/229103275-b5e482bb-4601-46e6-8142-244f531cebdb.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/59018053/229103726-e5b529a3-9b3f-4970-8a1f-c6af37f087bf.svg">
-    <img alt="Medusa logo" src="https://user-images.githubusercontent.com/59018053/229103726-e5b529a3-9b3f-4970-8a1f-c6af37f087bf.svg">
-    </picture>
-  </a>
-</p>
+# Nuxt Minimal Starter
 
-<h1 align="center">
-  Medusa Next.js Starter Template
-</h1>
+Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-<p align="center">
-Combine Medusa's modules for your commerce backend with the newest Next.js 15 features for a performant storefront.</p>
+## Setup
 
-<p align="center">
-  <a href="https://github.com/medusajs/medusa/blob/master/CONTRIBUTING.md">
-    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat" alt="PRs welcome!" />
-  </a>
-  <a href="https://discord.gg/xpCwq3Kfn8">
-    <img src="https://img.shields.io/badge/chat-on%20discord-7289DA.svg" alt="Discord Chat" />
-  </a>
-  <a href="https://twitter.com/intent/follow?screen_name=medusajs">
-    <img src="https://img.shields.io/twitter/follow/medusajs.svg?label=Follow%20@medusajs" alt="Follow @medusajs" />
-  </a>
-</p>
+Make sure to install dependencies:
 
-### Prerequisites
+```bash
+# npm
+npm install
 
-To use the [Next.js Starter Template](https://medusajs.com/nextjs-commerce/),
-you should have a Medusa server running locally on port 9000.
-For a quick setup, run:
+# pnpm
+pnpm install
 
-```shell
-npx create-backend-app@latest
+# yarn
+yarn install
+
+# bun
+bun install
 ```
 
-Check out [create-medusa-app docs](https://docs.medusajs.com/learn/installation)
-for more details and troubleshooting.
+## Development Server
 
-# Overview
+Start the development server on `http://localhost:3000`:
 
-The Medusa Next.js Starter is built with:
+```bash
+# npm
+npm run dev
 
-- [Next.js](https://nextjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Typescript](https://www.typescriptlang.org/)
-- [Medusa](https://medusajs.com/)
+# pnpm
+pnpm dev
 
-Features include:
-
-- Full ecommerce support:
-    - Product Detail Page
-    - Product Overview Page
-    - Product Collections
-    - Cart
-    - Checkout with Stripe
-    - User Accounts
-    - Order Details
-- Full Next.js 15 support:
-    - App Router
-    - Next fetching/caching
-    - Server Components
-    - Server Actions
-    - Streaming
-    - Static Pre-Rendering
-
-# Quickstart
-
-### Setting up the environment variables
-
-Navigate into your projects directory and get your environment variables ready:
-
-```shell
-cd nextjs-starter-backend/
-mv .env.template .env.local
-```
-
-### Install dependencies
-
-Use Yarn to install all dependencies.
-
-```shell
-yarn
-```
-
-### Start developing
-
-You are now ready to start up your project.
-
-```shell
+# yarn
 yarn dev
+
+# bun
+bun run dev
 ```
 
-### Open the code and start customizing
+## Production
 
-Your site is now running at http://localhost:8000!
+Build the application for production:
 
-# Payment integrations
+```bash
+# npm
+npm run build
 
-By default this starter supports the following payment integrations
+# pnpm
+pnpm build
 
-- [Stripe](https://stripe.com/)
+# yarn
+yarn build
 
-To enable the integrations you need to add the following to your `.env.local`
-file:
-
-```shell
-NEXT_PUBLIC_STRIPE_KEY=<your-stripe-public-key>
+# bun
+bun run build
 ```
 
-You'll also need to setup the integrations in your Medusa server. See
-the [Medusa documentation](https://docs.medusajs.com) for more information on
-how to
-configure [Stripe](https://docs.medusajs.com/resources/commerce-modules/payment/payment-provider/stripe#main).
+Locally preview production build:
 
-# Resources
+```bash
+# npm
+npm run preview
 
-## Learn more about Medusa
+# pnpm
+pnpm preview
 
-- [Website](https://www.medusajs.com/)
-- [GitHub](https://github.com/medusajs)
-- [Documentation](https://docs.medusajs.com/)
+# yarn
+yarn preview
 
-## Learn more about Next.js
+# bun
+bun run preview
+```
 
-- [Website](https://nextjs.org/)
-- [GitHub](https://github.com/vercel/next.js)
-- [Documentation](https://nextjs.org/docs)
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

@@ -1,0 +1,133 @@
+[
+  {
+    "id": "prod_01JY1DERJ4CSQPGA4B72KBCK8",
+    "title": "Minimal 925 Ayar Gümüş Kolye",
+    "subtitle": "Sade ama etkileyici – her stile uyumlu.",
+    "status": "published",
+    "external_id": null,
+    "description": "Zamansız bir tasarıma sahip bu kolye, her anınıza zarafet katacak.",
+    "handle": "minimal-925-ayar-gumus-kolye",
+    "is_giftcard": false,
+    "discountable": true,
+    "thumbnail": "http://localhost:9000/static/1",
+    "collection_id": "pcol_01JY1D6BQTFTD8FAZHMWW3QDK",
+    "type_id": null,
+    "weight": null,
+    "length": null,
+    "height": null,
+    "width": null,
+    "hs_code": null,
+    "origin_country": null,
+    "mid_code": null,
+    "material": null,
+    "created_at": "2025-06-18T11:40:42.952Z",
+    "updated_at": "2025-06-18T11:43:19.449Z",
+    "deleted_at": null,
+    "metadata": null,
+    "type": null,
+    "collection": {},
+    "options": [],
+    "tags": [],
+    "images": [],
+    "categories": [],
+    "sales_channels": []
+  },
+  {
+    "id": "prod_01JY1DGRJYX0E87JXP1RKJYE4",
+    "title": "Şık ve Ayarlanabilir Gümüş Bileklik",
+    "subtitle": "Bileğinizde şıklığın ve zarafetin simgesi.",
+    "status": "published",
+    "external_id": null,
+    "description": "Modern ve klasik çizgilerin birleştiği bu bileklik stilinizi tamamlayacak.",
+    "handle": "sik-ve-ayarlanabilir-gumus-bileklik",
+    "is_giftcard": false,
+    "discountable": true,
+    "thumbnail": "http://localhost:9000/static/1",
+    "collection_id": "pcol_01JY1D6BQTFTD8FAZHMWW3QDK",
+    "type_id": null,
+    "weight": null,
+    "length": null,
+    "height": null,
+    "width": null,
+    "hs_code": null,
+    "origin_country": null,
+    "mid_code": null,
+    "material": null,
+    "created_at": "2025-06-18T11:41:48.517Z",
+    "updated_at": "2025-06-18T11:43:19.449Z",
+    "deleted_at": null,
+    "metadata": null,
+    "type": null,
+    "collection": {
+      "id": "pcol_01JY1D6BQTFTD8FAZHMWW3QDK",
+      "title": "Öne Çıkanlar",
+      "handle": "one-cikanlar",
+      "metadata": null,
+      "created_at": "2025-06-18T11:36:07.669Z",
+      "updated_at": "2025-06-18T11:36:07.669Z",
+      "deleted_at": null
+    },
+    "options": [
+      {}
+    ],
+    "tags": [],
+    "images": [
+      {}
+    ],
+    "categories": [
+      {}
+    ],
+    "sales_channels": [
+      {}
+    ]
+  },
+  {
+    "id": "prod_01JY1DJFB57NQEMC9CGXPCB3X",
+    "title": "925 Ayar Gümüş Ayarlanabilir Yüzük",
+    "subtitle": "Göz alıcı ama sade – her parmağa uygun.",
+    "status": "published",
+    "external_id": null,
+    "description": "El işçiliği ile hazırlanan bu yüzük, zarafetiyle dikkat çeker.",
+    "handle": "925-ayar-gumus-ayarlanabilir-yuzuk",
+    "is_giftcard": false,
+    "discountable": true,
+    "thumbnail": "http://localhost:9000/static/1",
+    "collection_id": "pcol_01JY1D6BQTFTD8FAZHMWW3QDK",
+    "type_id": null,
+    "weight": null,
+    "length": null,
+    "height": null,
+    "width": null,
+    "hs_code": null,
+    "origin_country": null,
+    "mid_code": null,
+    "material": null,
+    "created_at": "2025-06-18T11:42:44.584Z",
+    "updated_at": "2025-06-18T11:43:19.449Z",
+    "deleted_at": null,
+    "metadata": null,
+    "type": null,
+    "collection": {
+      "id": "pcol_01JY1D6BQTFTD8FAZHMWW3QDK",
+      "title": "Öne Çıkanlar",
+      "handle": "one-cikanlar",
+      "metadata": null,
+      "created_at": "2025-06-18T11:36:07.669Z",
+      "updated_at": "2025-06-18T11:36:07.669Z",
+      "deleted_at": null
+    },
+    "options": [
+      {}
+    ],
+    "tags": [],
+    "images": [
+      {}
+    ],
+    "categories": [
+      {}
+    ],
+    "sales_channels": [
+      {}
+    ]
+  }
+]
