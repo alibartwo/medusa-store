@@ -73,7 +73,12 @@ export const Login = () => {
   return (
     <div className="bg-ui-bg-subtle flex min-h-dvh w-dvw items-center justify-center">
       <div className="m-4 flex w-full max-w-[280px] flex-col items-center">
-        <AvatarBox />
+        {/* <AvatarBox /> */}
+        <img
+        src="/piwu.png"
+        alt="Onof Logo"
+        className="h-[36px] w-[36px] object-contain"
+        />
         <div className="mb-4 flex flex-col items-center">
           <Heading>{t("login.title")}</Heading>
           <Text size="small" className="text-ui-fg-subtle text-center">
