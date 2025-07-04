@@ -4,7 +4,8 @@
     <div class="w-full lg:w-1/2 space-y-4 overflow-y-auto max-h-[calc(100vh-120px)] pr-2">
       <div v-for="(img, index) in product?.images" :key="index"
         class="rounded-xl aspect-square flex items-center justify-center overflow-hidden">
-        <img :src="img.url" :alt="product.title" class="object-contain max-h-full max-w-full" />
+        <NuxtImg :src="`${img.url}`" :alt="product.title" format="webp" fit="contain"
+          class="object-contain max-h-full max-w-full" width="600" height="600" />
       </div>
     </div>
 

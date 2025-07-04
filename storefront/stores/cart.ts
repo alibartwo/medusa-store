@@ -108,9 +108,15 @@ export const useCartStore = defineStore("cart", () => {
   };
 
   // initialize cart when region is loaded or changed
-  watch([isLoaded, region], () => {
-    initCart();
-  });
+  watch(
+    [isLoaded, region],
+    () => {
+      if (isLoaded.value && region.value && !cart.value) {
+        initCart();
+      }
+    },
+    { immediate: true },
+  );
 
   return {
     cart,

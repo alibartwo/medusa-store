@@ -10,6 +10,7 @@ export const useAuthStore = defineStore("auth", () => {
   const customer = ref<HttpTypes.StoreCustomer | null>(null);
   const loading = ref(false);
   const error = ref<string | null>(null);
+  const addresses = ref<HttpTypes.StoreCustomerAddress[] | null>(null);
 
   const register = async ({
     email,
@@ -106,6 +107,30 @@ export const useAuthStore = defineStore("auth", () => {
     }
   };
 
+  const loadAddresses = async () => {
+    try {
+      const res = await sdk.store.customer.listAddress();
+      addresses.value = res.addresses;
+    } catch (e) {
+      console.error("Adresler alınamadı:", e);
+    }
+  };
+
+  const addAddress = async (address: HttpTypes.StoreAddAddress) => {
+    try {
+      const cleanAddress = {
+        ...address,
+        metadata: address.metadata ?? undefined,
+      };
+      const res = await sdk.store.customer.createAddress(cleanAddress);
+      await loadAddresses();
+      return res;
+    } catch (e) {
+      console.error("Adres eklenemedi:", e);
+      throw e;
+    }
+  };
+
   return {
     customer,
     loading,
@@ -114,5 +139,8 @@ export const useAuthStore = defineStore("auth", () => {
     login,
     logout,
     loadCustomer,
+    addresses,
+    loadAddresses,
+    addAddress,
   };
 });

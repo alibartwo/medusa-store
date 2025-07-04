@@ -1,11 +1,11 @@
 <template>
-  <section class="max-w-2xl mx-auto py-12 space-y-6">
+  <section class="max-w-2xl mx-auto py-12 space-y-6 h-screen-full h-[75vh]">
     <h1 class="text-2xl font-bold">Hesabım</h1>
 
     <div v-if="auth.customer" class="space-y-4">
       <p><strong>Ad:</strong> {{ auth.customer.first_name }} {{ auth.customer.last_name }}</p>
       <p><strong>E-posta:</strong> {{ auth.customer.email }}</p>
-      <BaseButton @click="handleLogout" type="secondary" label="Çıkış Yap" />
+      <BaseButton type="secondary" label="Çıkış Yap" @click="handleLogout" />
     </div>
 
     <div v-else class="text-gray-500">Yükleniyor veya giriş yapılmamış...</div>

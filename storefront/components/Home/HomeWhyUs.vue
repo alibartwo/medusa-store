@@ -1,13 +1,8 @@
 <template>
   <section class="relative">
     <!-- Background Image -->
-    <NuxtImg
-      src="/images/why-choose-us.png"
-      alt="Onbaby neden"
-      width="1920"
-      height="700"
-      class="w-full h-[700px] object-cover"
-    />
+    <NuxtImg src="/images/why-choose-us.png" alt="Onbaby neden" width="1920" height="700"
+      class="w-full h-[700px] object-cover" />
 
     <!-- Overlay -->
     <div class="absolute inset-0 bg-black/50" />
@@ -40,16 +35,8 @@
             </p>
 
             <div class="flex flex-wrap justify-end gap-4">
-              <BaseButton
-                type="primary"
-                label="Siz de Deneyin"
-                icon="uil:arrow-right"
-                iconSize="20"
-              />
-              <BaseButton
-                type="white"
-                label="Hakkımızda"
-              />
+              <BaseButton type="primary" label="Siz de Deneyin" icon="uil:arrow-right" iconSize="20" to="/urun" />
+              <BaseButton type="white" label="Hakkımızda" to="/hakkimizda"/>
             </div>
           </div>
         </div>

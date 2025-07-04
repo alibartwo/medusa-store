@@ -28,7 +28,7 @@
             korumanız hazır
           </h1>
 
-          <BaseButton to="/hakkimizda" type="primary" label="Ürünü İncele" icon="uil:arrow-right" iconSize="20" />
+          <BaseButton to="/urun" type="primary" label="Ürünü İncele" icon="uil:arrow-right" iconSize="20" />
 
           <p class="text-xs text-gray-500">
             100×120cm Tek Kullanımlık Masa ve Aktivite Örtüsü
