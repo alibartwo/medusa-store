@@ -11,7 +11,7 @@
 
       <!-- E-posta -->
       <ContactInfoCard title="E-posta" icon="mdi:email-outline">
-        Bizimle e-posta yoluyla iletişime geçin: <br />
+        Bize e-posta gönderin: <br />
         <strong>info@onbaby.com</strong>
       </ContactInfoCard>
 
