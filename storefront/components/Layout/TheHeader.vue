@@ -4,7 +4,7 @@
       <!-- Logo and Navigation -->
       <div class="flex items-center gap-4 md:gap-8">
         <NuxtLink to="/" class="shrink-0">
-          <img src="/images/logo.png" alt="Logo" class="h-10 md:h-12" />
+          <img src="/images/babyon-logo.svg" alt="Logo" class="h-10 md:h-12" />
         </NuxtLink>
         <div class="hidden w-px h-8 bg-gray-300 md:block opacity-30" />
         <nav class="items-center hidden gap-6 text-sm font-semibold text-gray-600 md:flex">

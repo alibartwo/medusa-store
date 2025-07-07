@@ -3,7 +3,11 @@
     <div class="max-w-screen-xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
       <!-- Logo & Description -->
       <div class="md:col-span-6 space-y-4">
-        <img src="/images/logo.png" alt="Logo" class="h-14" />
+        <div class="flex flew-row gap-4">
+          <img src="/images/onroll-paper-logo.svg" alt="Logo" class="h-14" />
+          <img src="/images/babyon-logo.svg" alt="Logo" class="h-14" />
+        </div>
+
         <p class="text-sm text-gray-600 max-w-sm leading-relaxed">
           Kalite ve güveni bir araya getirerek çocuklara özel çözümler
           sunuyoruz. Onbaby, her aşamada ailenizin yanında.
@@ -81,9 +85,11 @@
       <p class="text-gray-500">
         © 2025 On Ofset Ambalaj. Tüm Hakları Saklıdır
       </p>
-      <p class="text-gray-500 mt-2 md:mt-0">
-        Designed by
-        <a href="https://piwu.tr" target="_blank" class="text-primary underline">Piwu</a>
+      <p class="text-gray-500 mt-2 md:mt-0 flex flex-row items-center">
+        powered by 
+        <a href="https://piwu.tr" target="_blank" class="text-primary underline">
+          <img src="/images/piwu.svg" alt="piwu"class="h-8" />
+        </a>
       </p>
       <div class="flex gap-4 mt-2 md:mt-0">
         <Icon name="uil:linkedin" class="text-primary text-[1.5rem]" />

@@ -17,7 +17,7 @@
 
     <!-- Logo (top-left) -->
     <NuxtLink to="/" class="absolute top-6 left-6 z-30 cursor-pointer">
-      <NuxtImg src="/images/logo.png" alt="Logo" class="h-10 w-auto" />
+      <NuxtImg src="/images/babyon-logo.svg" alt="Logo" class="h-10 w-auto" />
     </NuxtLink>
 
     <!-- Text block -->
