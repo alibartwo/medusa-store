@@ -75,9 +75,9 @@ export const Login = () => {
       <div className="m-4 flex w-full max-w-[280px] flex-col items-center">
         {/* <AvatarBox /> */}
         <img
-        src="/piwu.png"
+        src="/piwu-fw.svg"
         alt="Onof Logo"
-        className="h-[36px] w-[36px] object-contain"
+        className="h-[128px] object-contain"
         />
         <div className="mb-4 flex flex-col items-center">
           <Heading>{t("login.title")}</Heading>
