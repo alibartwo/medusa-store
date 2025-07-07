@@ -36,6 +36,7 @@ type InjectedDependencies = {
 };
 
 class PayTRService extends AbstractPaymentProvider<Options> {
+  static identifier = "paytr";
   protected logger_: Logger;
   protected options_: Options;
   // assuming you're initializing a client
@@ -127,7 +128,9 @@ class PayTRService extends AbstractPaymentProvider<Options> {
     const total_amount = String(data.total_amount);
     const hash = String(data.hash);
 
-    this.logger_.info(`Webhook alındı - status: ${status}, oid: ${merchant_oid}, tutar: ${total_amount}`);
+    this.logger_.info(
+      `Webhook alındı - status: ${status}, oid: ${merchant_oid}, tutar: ${total_amount}`
+    );
 
     // generate our specific hash
     const generatedHash = crypto
