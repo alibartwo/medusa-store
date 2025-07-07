@@ -31,8 +31,9 @@ module.exports = defineConfig({
             resolve: "./src/modules/paytr",
             id: "paytr",
             options: {
-              // provider options...
-              apiKey: "...",
+              merchantID: process.env.PAYTR_MERCHANT_ID || "...",
+              merchantKey: process.env.PAYTR_MERCHANT_KEY || "...",
+              merchantSalt: process.env.PAYTR_MERCHANT_SALT || "...",
             },
           },
         ],

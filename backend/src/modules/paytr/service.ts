@@ -1,3 +1,4 @@
+import crypto from "crypto";
 import { AbstractPaymentProvider } from "@medusajs/framework/utils";
 import {
   AuthorizePaymentInput,
@@ -22,9 +23,12 @@ import {
   UpdatePaymentOutput,
   WebhookActionResult,
 } from "@medusajs/framework/types";
+import PayTRClient from "./client";
 
 type Options = {
   apiKey: string;
+  merchant_key: string;
+  merchant_salt: string;
 };
 
 type InjectedDependencies = {
@@ -43,7 +47,11 @@ class PayTRService extends AbstractPaymentProvider<Options> {
     this.logger_ = container.logger;
     this.options_ = options;
 
-    // TODO initialize your client
+    this.client = new PayTRClient({
+      merchant_id: options.apiKey,
+      merchant_key: options.merchant_key,
+      merchant_salt: options.merchant_salt,
+    });
   }
   // ...
 
@@ -112,41 +120,49 @@ class PayTRService extends AbstractPaymentProvider<Options> {
   async getWebhookActionAndData(
     payload: ProviderWebhookPayload["payload"]
   ): Promise<WebhookActionResult> {
-    const { data, rawData, headers } = payload;
+    const { data } = payload;
 
-    try {
-      switch (data.event_type) {
-        case "authorized_amount":
-          return {
-            action: "authorized",
-            data: {
-              session_id: (data.metadata as Record<string, any>).session_id,
-              amount: new BigNumber(data.amount as number),
-            },
-          };
-        case "success":
-          return {
-            action: "captured",
-            data: {
-              session_id: (data.metadata as Record<string, any>).session_id,
-              amount: new BigNumber(data.amount as number),
-            },
-          };
-        default:
-          return {
-            action: "not_supported",
-            data: {
-              session_id: "",
-              amount: new BigNumber(0),
-            },
-          };
-      }
-    } catch (e) {
+    const merchant_oid = String(data.merchant_oid);
+    const status = String(data.status);
+    const total_amount = String(data.total_amount);
+    const hash = String(data.hash);
+
+    this.logger_.info(`Webhook alındı - status: ${status}, oid: ${merchant_oid}, tutar: ${total_amount}`);
+
+    // generate our specific hash
+    const generatedHash = crypto
+      .createHmac("sha256", this.options_.merchant_key)
+      .update(
+        `${merchant_oid}${this.options_.merchant_salt}${status}${total_amount}`
+      )
+      .digest("base64");
+
+    if (generatedHash !== hash) {
+      this.logger_.warn(`PayTR webhook doğrulama başarısız: ${merchant_oid}`);
       return {
         action: "failed",
         data: {
-          session_id: (data.metadata as Record<string, any>).session_id,
-          amount: new BigNumber(data.amount as number),
+          session_id: merchant_oid,
+          amount: 0,
+        },
+      };
+    }
+
+    // if success, determine action based on status
+    if (status === "success") {
+      return {
+        action: "captured",
+        data: {
+          session_id: merchant_oid,
+          amount: Number(total_amount) / 100,
+        },
+      };
+    } else {
+      return {
+        action: "canceled",
+        data: {
+          session_id: merchant_oid,
+          amount: Number(total_amount) / 100,
         },
       };
     }
