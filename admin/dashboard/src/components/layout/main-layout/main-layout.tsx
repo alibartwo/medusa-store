@@ -53,6 +53,7 @@ const MainSidebar = () => {
             <CoreRouteSection />
             <ExtensionRouteSection />
           </div>
+          <LogoSection />
           <UtilitySection />
         </div>
         <div className="bg-ui-bg-subtle sticky bottom-0">
@@ -250,6 +251,19 @@ const useCoreRoutes = (): Omit<INavItem, "pathname">[] => {
       to: "/price-lists",
     },
   ]
+}
+
+const LogoSection = () => {
+
+  return (
+    <div className="flex items-center justify-start p-3">
+        <img
+          src={"/piwu.svg"}
+          alt="Medusa Logo"
+          className="h-10 w-auto"
+        />
+    </div>
+  )
 }
 
 const Searchbar = () => {
