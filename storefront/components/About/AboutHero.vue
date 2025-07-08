@@ -34,7 +34,7 @@
       <div class="absolute bottom-0 right-0 w-full px-4 pb-16">
         <div class="max-w-screen-xl mx-auto flex justify-end">
           <p class="text-sm text-white/80 max-w-md text-right">
-            Su geçirmez, kaymaz yapısıyla Onbaby örtüleri hem oyun <br />
+            Su geçirmez, kaymaz yapısıyla BabyON örtüleri hem oyun <br />
             hem yemek aktiviteleri için ideal.
           </p>
         </div>

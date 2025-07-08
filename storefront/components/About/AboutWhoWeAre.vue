@@ -10,7 +10,7 @@
           BİZ KİMİZ?
         </p>
         <h2 class="text-4xl md:text-4xl font-semibold decoration-primary">
-          Hayatın Her Alanında Onbaby
+          Hayatın Her Alanında BabyON
         </h2>
       </div>
 
@@ -46,7 +46,7 @@
           yanındayız.
         </h3>
         <p class="text-gray-700 text-sm leading-relaxed">
-          Onbaby, bebek bakımından eğitici aktivitelere kadar günlük yaşamın her
+          BabyON, bebek bakımından eğitici aktivitelere kadar günlük yaşamın her
           alanında ebeveynlerin hayatını kolaylaştırmak için tasarlanmış
           yenilikçi ürünler sunar. Üretimde kalite ve hijyenden ödün vermeden,
           her detayda çocuk sağlığını ön planda tutan yaklaşımımızla bugün

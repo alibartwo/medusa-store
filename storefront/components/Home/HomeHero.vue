@@ -2,7 +2,8 @@
   <section class="py-4 md:py-10 min-h-[500px]">
     <div class="grid items-center max-w-screen-xl grid-cols-12 gap-4 px-4 mx-auto md:gap-4">
       <!-- Left content -->
-      <div class="flex flex-col justify-between h-full col-span-12 gap-1 p-4 md:col-span-4 bg-secondary rounded-3xl md:p-8">
+      <div
+        class="flex flex-col justify-between h-full col-span-12 gap-1 p-4 md:col-span-4 bg-secondary rounded-3xl md:p-8">
         <!-- Badge -->
         <div class="flex items-center gap-3">
           <div class="flex -space-x-2">
@@ -23,9 +24,8 @@
         <!-- Heading, Button, Info group -->
         <div class="flex flex-col gap-4">
           <h1 class="text-xl font-semibold md:text-2xl text-primary">
-            Yemek, etkinlik, oyun... <br />
-            Leziz dağınıklıklara karşı <br />
-            korumanız hazır
+            Dökülse de sorun değil! <br>
+            Sen sadece anın tadını çıkar.
           </h1>
 
           <BaseButton to="/urun" type="primary" label="Ürünü İncele" icon="uil:arrow-right" iconSize="20" />
