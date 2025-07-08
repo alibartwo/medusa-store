@@ -13,20 +13,51 @@
                     <div class="flex flex-col justify-between flex-1">
                         <div>
                             <h3 class="text-lg font-semibold text-primary group-hover:text-primary/80 line-clamp-2">
-                                {{ item.variant_title }}
+                                {{ item.title || item.variant_title }}
                             </h3>
-                            <p class="mt-1 text-sm text-gray-700">Adet: {{ item.quantity }}</p>
+                            <p class="mt-1 text-sm text-gray-700">Varyant: {{ item.variant?.title }}</p>
+                            <div class="mt-2 flex items-center gap-2 text-sm">
+                                <button @click="updateQuantity(item.id, item.quantity - 1)"
+                                    class="px-2 py-1 border rounded">
+                                    -
+                                </button>
+                                <span>Adet: {{ item.quantity }}</span>
+                                <button @click="updateQuantity(item.id, item.quantity + 1)"
+                                    class="px-2 py-1 border rounded">
+                                    +
+                                </button>
+                            </div>
                         </div>
-                        <p class="text-sm font-medium mt-2">₺{{ (item.unit_price).toFixed(2) }}</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <p class="text-sm font-medium">₺{{ (item.unit_price).toFixed(2) }}</p>
+                            <p class="text-sm font-semibold">Toplam: ₺{{ ((item.unit_price * item.quantity)).toFixed(2)
+                            }}</p>
+                            <button @click="cartStore.removeItem(item.id)" class="text-red-500 hover:text-red-700">
+                                <Icon name="mdi:trash-can-outline" size="20" />
+                            </button>
+                        </div>
                     </div>
                 </li>
             </ul>
-            <div class="flex justify-end mt-6">
-                <BaseButton label="Ödeme Adımına Geç" type="primary" to="/odeme" />
+
+            <div class="mt-10 pt-6 text-right space-y-2">
+                <p class="text-lg font-semibold">
+                    Ara Toplam: ₺{{ cartSubtotal.toFixed(2) }}
+                </p>
+                <div class="flex justify-end space-x-4">
+                    <BaseButton label="Sepeti Temizle" type="secondary" @click="cartStore.clearCart()" />
+                    <BaseButton label="Alışverişe Devam Et" type="primary" to="/" />
+                    <BaseButton label="Ödeme Adımına Geç" type="primary" to="/odeme" />
+                </div>
             </div>
         </div>
-        <div v-else>
-            <p class="text-center text-gray-600">Sepetinizde ürün bulunmuyor.</p>
+
+        <div v-else class="text-center text-gray-600">
+            <NuxtImg src="/images/empty-cart.svg" alt="Boş sepet" width="180" class="mx-auto mb-4" />
+            <p>Sepetinizde ürün bulunmuyor.</p>
+            <div class="mt-4 flex justify-center">
+                <BaseButton label="Alışverişe Başla" type="primary" to="/urun" />
+            </div>
         </div>
     </div>
 </template>
@@ -39,13 +70,22 @@ const cartStore = useCartStore();
 const cart = computed(() => cartStore.cart);
 const items = computed(() => cart.value?.items ?? []);
 
+const cartSubtotal = computed(() => {
+    return items.value.reduce((acc, item) => acc + (item.unit_price * item.quantity), 0);
+});
+
+const updateQuantity = async (itemId: string, quantity: number) => {
+    if (quantity < 1) {
+        await cartStore.removeItem(itemId);
+    } else {
+        await cartStore.updateItem(itemId, quantity);
+    }
+};
+
 onMounted(async () => {
-    const interval = setInterval(() => {
-        const stored = localStorage.getItem("cart_id");
-        if (stored) {
-            clearInterval(interval);
-            cartStore.initCart();
-        }
-    }, 100);
+    const stored = localStorage.getItem("cart_id");
+    if (stored) {
+        await cartStore.initCart();
+    }
 });
 </script>

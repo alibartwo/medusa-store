@@ -107,6 +107,24 @@ export const useCartStore = defineStore("cart", () => {
     cart.value = value;
   };
 
+  const clearCart = async () => {
+  if (!cart.value?.id || !cart.value.items) return;
+
+  loading.value = true;
+  try {
+    for (const item of cart.value.items) {
+      await sdk.store.cart.deleteLineItem(cart.value.id, item.id);
+    }
+    const { cart: updated } = await sdk.store.cart.retrieve(cart.value.id);
+    cart.value = updated;
+  } catch (e) {
+    console.error(e);
+    error.value = "Sepet temizlenemedi";
+  } finally {
+    loading.value = false;
+  }
+};
+
   // initialize cart when region is loaded or changed
   watch(
     [isLoaded, region],
@@ -127,5 +145,6 @@ export const useCartStore = defineStore("cart", () => {
     updateItem,
     removeItem,
     setCart,
+    clearCart
   };
 });

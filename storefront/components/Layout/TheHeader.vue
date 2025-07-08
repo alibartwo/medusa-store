@@ -32,7 +32,7 @@
         </button>
       </div>
 
-      <!-- Mobile Menü -->
+      <!-- Mobile Menu -->
       <button class="text-gray-600 md:hidden hover:text-primary" @click="isMobileMenuOpen = !isMobileMenuOpen">
         <Icon name="mdi:menu" class="w-7 h-7" />
       </button>
@@ -40,7 +40,7 @@
 
     <TheNavigation v-if="isMobileMenuOpen" @close="isMobileMenuOpen = false" />
 
-    <!-- Sepet Modal -->
+    <!-- Cart Modal -->
     <CartModal v-if="showCartModal" @close="toggleCartModal" />
   </header>
 </template>
@@ -57,7 +57,9 @@ const cartStore = useCartStore()
 const isMobileMenuOpen = ref(false)
 const showCartModal = ref(false)
 
-const cartCount = computed(() => cartStore.cart?.items?.length ?? 0)
+const cartCount = computed(() => {
+  return cartStore.cart?.items?.reduce((total, item) => total + item.quantity, 0) ?? 0
+})
 
 function toggleCartModal() {
   console.log('toggleCartModal çalıştı') // DEBUG
