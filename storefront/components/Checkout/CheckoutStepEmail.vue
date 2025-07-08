@@ -2,8 +2,8 @@
   <div class="space-y-4">
     <h2 class="text-lg font-semibold">E-posta Adresi</h2>
     <BaseInput v-model="email" type="email" placeholder="e-posta@adresiniz.com" :error="emailError" />
-    <div v-if="emailError" class="text-sm text-red-500">{{ emailError }}</div>
     <BaseButton type="primary" label="Devam Et" @click="submit" />
+    <div v-if="emailError" class="text-sm text-red-500">{{ emailError }}</div>
   </div>
 </template>
 
@@ -29,7 +29,7 @@ async function submit() {
   }
 
   if (!isValidEmail(email.value)) {
-    emailError.value = 'Geçerli bir e-posta adresi girin.'
+    emailError.value = 'Lütfen geçerli bir e-posta adresi girin.'
     return
   }
 
@@ -44,9 +44,20 @@ async function submit() {
     emailError.value = ''
     emit('set-email', email.value)
     emit('next')
-  } catch (error) {
-    console.error('E-posta güncellenemedi:', error)
-    emailError.value = 'Bir hata oluştu, lütfen tekrar deneyin.'
+  } catch (error: any) {
+    const msg = error?.response?.data?.message
+    const isEmailTaken = msg?.includes('already exists')
+
+    if (isEmailTaken) {
+      // E-posta zaten kullanılıyor olsa bile ilerle
+      console.warn('E-posta zaten kayıtlı: misafir olarak devam ediliyor.')
+      emailError.value = ''
+      emit('set-email', email.value)
+      emit('next')
+    } else {
+      console.error('E-posta güncellenemedi:', error)
+      emailError.value = 'Bir hata oluştu, lütfen tekrar deneyin.'
+    }
   }
 }
 
