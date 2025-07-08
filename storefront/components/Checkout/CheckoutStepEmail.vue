@@ -8,12 +8,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useCartStore } from '~/stores/cart'
 import { useMedusaClient } from '~/composables/useMedusaClient'
+import { useCheckoutStore } from '~/stores/checkout'
 
 const emit = defineEmits(['next', 'set-email'])
-const email = ref('')
+const checkoutStore = useCheckoutStore()
+const email = computed({
+  get: () => checkoutStore.email,
+  set: (val) => checkoutStore.email = val,
+})
 const emailError = ref('')
 const sdk = useMedusaClient()
 const cartStore = useCartStore()

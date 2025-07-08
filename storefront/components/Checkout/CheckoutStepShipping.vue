@@ -9,7 +9,7 @@
           class="form-radio text-primary" />
         <div>
           <p class="font-medium text-gray-700">{{ option.name }}</p>
-          <p class="text-sm text-gray-500">{{ option.amount }}</p>
+          <p class="text-sm text-gray-500">{{ option.amount }} ₺</p>
         </div>
       </label>
     </div>

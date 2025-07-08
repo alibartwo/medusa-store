@@ -17,7 +17,7 @@
       <BaseInput v-model="address.city" placeholder="Şehir" :error="errors.city" />
     </div>
     <div>
-      <BaseInput v-model="address.country_code" placeholder="Ülke Kodu" readonly />
+      <BaseInput :model-value="'Türkiye'" placeholder="Ülke" disabled />
     </div>
     <div>
       <BaseInput v-model="address.phone" placeholder="Telefon" :error="errors.phone" />
@@ -39,6 +39,7 @@
 import { ref, reactive, computed } from 'vue'
 import { useCartStore } from '~/stores/cart'
 import { useMedusaClient } from '~/composables/useMedusaClient'
+import { useCheckoutStore } from '~/stores/checkout'
 import * as yup from 'yup'
 
 const emit = defineEmits(['next', 'back', 'set-address'])
@@ -46,14 +47,10 @@ const emit = defineEmits(['next', 'back', 'set-address'])
 const cartStore = useCartStore()
 const sdk = useMedusaClient()
 
-const address = reactive({
-  first_name: '',
-  last_name: '',
-  address_1: '',
-  postal_code: '',
-  city: '',
-  country_code: 'tr',
-  phone: ''
+const checkoutStore = useCheckoutStore()
+const address = computed({
+  get: () => checkoutStore.address,
+  set: (val) => checkoutStore.address = val,
 })
 
 const errors = reactive<Record<string, string>>({})
@@ -81,18 +78,20 @@ const schema = yup.object({
 
 async function submit() {
   try {
-    await schema.validate(address, { abortEarly: false })
+    await schema.validate(address.value, { abortEarly: false })
     Object.keys(errors).forEach(key => delete errors[key])
 
     if (!cartStore.cart?.id) return
 
+    address.value.country_code = 'tr'
+
     const { cart } = await sdk.store.cart.update(cartStore.cart.id, {
-      shipping_address: address,
-      billing_address: address,
+      shipping_address: address.value,
+      billing_address: address.value,
     })
 
     cartStore.cart = cart
-    emit('set-address', address)
+    emit('set-address', address.value)
     emit('next')
   } catch (err: any) {
     if (err.inner) {

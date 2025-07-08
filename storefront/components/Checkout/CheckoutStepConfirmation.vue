@@ -7,13 +7,24 @@
             <p class="mb-2">Tarih: {{ new Date(order.created_at).toLocaleDateString() }}</p>
             <p class="mb-4">Email: {{ order.email }}</p>
 
+            <h3 class="text-lg font-medium mt-6 mb-2">Teslimat Adresi</h3>
+            <p class="mb-4 whitespace-pre-line">
+              {{ order.shipping_address?.first_name }} {{ order.shipping_address?.last_name }}<br>
+              {{ order.shipping_address?.address_1 }}<br>
+              <template v-if="order.shipping_address?.address_2">
+                {{ order.shipping_address.address_2 }}<br>
+              </template>
+              {{ order.shipping_address?.postal_code }} {{ order.shipping_address?.city }}<br>
+              {{ order.shipping_address?.country_code?.toUpperCase() }}
+            </p>
+
             <h3 class="text-lg font-medium mt-6 mb-2">Ürünler</h3>
             <ul class="space-y-2 mb-6">
                 <li v-for="item in order.items" :key="item.id" class="flex justify-between">
                     <div>
-                        {{ item.title }} <span class="text-gray-500">x{{ item.quantity }}</span>
+                        {{ item.variant_title }} <span class="text-gray-500">x{{ item.quantity }}</span>
                     </div>
-                    <div>{{ formatPrice(item.unit_price) }}</div>
+                    <div>{{ formatPrice(item.unit_price * item.quantity) }}</div>
                 </li>
             </ul>
 
