@@ -11,7 +11,7 @@
 
         </p>
       </div>
-      <NuxtImg src="/images/use-case-1.png" alt="Piknik kullanım" width="600" height="600"
+      <NuxtImg src="/images/use-case-1.webp" alt="Piknik kullanım" width="600" height="600"
         class="rounded-3xl w-full h-full object-cover" />
 
       <!-- Block 2 -->
@@ -35,7 +35,7 @@
           Taşınabilir tasarımıyla dışarıda da güvende olun. Babyon örtüleri her ortamda size eşlik eder.
         </p>
       </div>
-      <NuxtImg src="/images/use-case-3.png" alt="Sağlık kullanım" width="600" height="600"
+      <NuxtImg src="/images/use-case-3.webp" alt="Sağlık kullanım" width="600" height="600"
         class="rounded-3xl w-full h-full object-cover" />
     </div>
   </section>

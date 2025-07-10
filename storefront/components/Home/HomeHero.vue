@@ -38,7 +38,10 @@
 
       <!-- Right image -->
       <div class="h-full col-span-12 overflow-hidden md:col-span-8">
-        <img src="/images/hero-img.png" alt="Hero Görsel" class="object-cover w-full h-full rounded-3xl" />
+        <div class="w-full aspect-square overflow-hidden rounded-3xl relative">
+          <img src="/images/hero-img.webp" alt="Hero Görsel"
+            class="absolute left-1/2 -translate-x-1/2 object-cover h-auto min-h-full" />
+        </div>
       </div>
     </div>
   </section>

@@ -5,7 +5,7 @@
         Kullanımı 1 dakikada öğrenin
       </h2>
       <div class="relative overflow-hidden rounded-3xl w-full max-w-none h-[400px]">
-        <NuxtImg src="/images/home-vid-bg.png" alt="Video Placeholder" class="w-full h-full object-cover object-bottom"
+        <NuxtImg src="/images/home-vid-bg.webp" alt="Video Placeholder" class="w-full h-full object-cover object-bottom"
           width="1920" height="1080" />
         <button @click="isModalOpen = true" class="absolute inset-0 flex items-center justify-center group transition-all hover:scale-105 hover:bg-white/10">
           <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg transition-transform duration-200 group-hover:scale-105">
