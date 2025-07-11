@@ -13,7 +13,12 @@
                 </div>
             </label>
         </div>
+
+        <div v-if="selected === 'paytr' && iframeHtml" class="mt-4 border p-4 rounded-lg">
+            <div v-html="iframeHtml"></div>
+        </div>
     </div>
+
     <div class="flex justify-between mt-6">
         <BaseButton type="secondary" label="Geri" @click="$emit('back')" />
         <BaseButton type="primary" label="Siparişi Tamamla" @click="onCompleteCart" />
@@ -29,6 +34,7 @@ const sdk = useMedusaClient();
 const cartStore = useCartStore();
 const selected = ref("system");
 const paymentProviders = ref<{ id: string; label: string; description: string }[]>([]);
+const iframeHtml = ref("");
 
 const initiatePayment = async () => {
     if (!cartStore.cart || !selected.value) return;
@@ -39,6 +45,17 @@ const initiatePayment = async () => {
 
     const { cart } = await sdk.store.cart.retrieve(cartStore.cart.id);
     cartStore.cart = cart;
+
+    const sessionList = cart.payment_collection?.payment_sessions || [];
+    const session = sessionList.find((s) => s.provider_id === "paytr");
+    const data = session?.data as { html?: string };
+
+    if (data?.html) {
+        iframeHtml.value = data.html;
+    } else {
+        iframeHtml.value = "";
+    }
+
 };
 
 watch(selected, () => {
