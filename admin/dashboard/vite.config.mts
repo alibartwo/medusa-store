@@ -34,5 +34,10 @@ export default defineConfig(({ mode }) => {
     server: {
       open: true,
     },
+    preview: {
+      host: true,
+      port: 5173,
+      allowedHosts: ["localhost", "admin.alibartu.com.tr"]
+    }
   }
 })
