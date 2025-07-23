@@ -8,9 +8,9 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'İletişim - Onbaby',
-  description: 'Onbaby ile iletişime geçin. Sorularınız, önerileriniz veya geri bildirimleriniz için bize ulaşın.',
-  ogTitle: 'İletişim - Onbaby',
-  ogDescription: 'Onbaby ile iletişime geçin. Sorularınız, önerileriniz veya geri bildirimleriniz için bize ulaşın.'
+  title: 'İletişim - BabyOn',
+  description: 'BabyOn ile iletişime geçin. Sorularınız, önerileriniz veya geri bildirimleriniz için bize ulaşın.',
+  ogTitle: 'İletişim - BabyOn',
+  ogDescription: 'BabyOn ile iletişime geçin. Sorularınız, önerileriniz veya geri bildirimleriniz için bize ulaşın.'
 })
 </script>

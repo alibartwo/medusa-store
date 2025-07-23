@@ -155,7 +155,7 @@ const selectVariant = (optionId: string) => {
 }
 
 useSeoMeta({
-  title: "BabyOB Aktivite Örtüsü",
+  title: "BabyOn Aktivite Örtüsü",
   description: "Bebeklerin yemek saatlerinde dökülen yiyecekler ve sıvılar artık sorun değil!",
 });
 </script>

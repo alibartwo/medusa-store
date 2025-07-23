@@ -11,10 +11,10 @@
 import InstagramSection from '~/components/Common/InstagramSection.vue'
 
 useSeoMeta({
-  title: 'Hakkımızda - Onbaby',
-  description: 'Çocuklar ve aileler için hijyenik, pratik ve tek kullanımlık ürünler. Onbaby ile hayatı kolaylaştırın.',
-  ogTitle: 'Hakkımızda - Onbaby',
-  ogDescription: 'Çocuklar ve aileler için hijyenik, pratik ve tek kullanımlık ürünler. Onbaby ile hayatı kolaylaştırın.',
+  title: 'Hakkımızda - BabyOn',
+  description: 'Çocuklar ve aileler için hijyenik, pratik ve tek kullanımlık ürünler. BabyOn ile hayatı kolaylaştırın.',
+  ogTitle: 'Hakkımızda - BabyOn',
+  ogDescription: 'Çocuklar ve aileler için hijyenik, pratik ve tek kullanımlık ürünler. BabyOn ile hayatı kolaylaştırın.',
 
 })
 </script>

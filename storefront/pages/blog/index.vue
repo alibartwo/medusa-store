@@ -43,7 +43,7 @@ const { data: posts } = await useAsyncData(route.path, () => {
 });
 
 useSeoMeta({
-  title: "Blog - Çocuk Gelişimi ve Hijyen",
+  title: "Blog - Çocuk Gelişimi ve Hijyen - BabyOn",
   description: "Çocuk gelişimi, hijyen ve pratik önerilerle ilgili güncel yazılar.",
 });
 </script>
