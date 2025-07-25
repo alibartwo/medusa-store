@@ -1,0 +1,18 @@
+{
+    "content-manager.plugin.name": "İçerik Yöneticisi",
+    "review-workflows.plugin.name": "İnceleme İş Akışları",
+    "Settings.application.header": "Uygulama",
+    "Auth.form.welcome.title": "PiwuCMS'e hoş geldiniz!",
+    "Auth.form.welcome.subtitle": "Hesabınıza giriş yapın.",
+    "HomePage.header.title": "Merhaba {name}",
+    "Auth.form.email.placeholder": " ",
+    "HomePage.header.subtitle": "Admin panelinize hoş geldiniz",
+    "global.profile.settings": "Profil Ayarları",
+    "global.profile": "Profil",
+    "profile": "Profil",
+    "widget.profile.title": "Profil",
+    "widget.chart-entries.title": "Girişler",
+    "widget.last-published.no-data": "Henüz yayınlanmış içerik yok.",
+    "widget.last-edited.no-data": "Henüz düzenlenmiş içerik yok.",
+    "widget.last-edited.title": "Son Düzenlenenler"
+}
